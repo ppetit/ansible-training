@@ -1,0 +1,13 @@
+[control]
+ubuntu1 ansible_connection=local
+
+[lb]
+ubuntu2
+
+[web]
+ubuntu3
+
+[db]
+ubuntu4
+
+
