@@ -9,7 +9,7 @@
       - name: configure nginx proxy
         template: src=templates/nginx.conf.j2 dest=/etc/nginx/sites-available/demo mode=0644
         notify: restart nginx
-     - name: de-activate default nginx site
+      - name: de-activate default nginx site
         file: path=/etc/nginx/sites-enabled/default state=absent
         notify: restart nginx
       - name: activate demo nginx site
