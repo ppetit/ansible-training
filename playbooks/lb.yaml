@@ -15,6 +15,9 @@
       - name: activate demo nginx site
         file: src=/etc/nginx/sites-available/demo dest=/etc/nginx/sites-enabled/demo state=link
         notify: restart nginx
+      - name: update hosts list
+        lineinfile: path=/etc/hosts line=192.168.2.3 ubuntu3 owner=root group=root mode=0644
+
 
     handlers:
       - name: restart nginx
