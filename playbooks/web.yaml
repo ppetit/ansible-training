@@ -14,6 +14,12 @@
       - name: ensure mod_wsgi is enabled
         apache2_module: state=present name=wsgi
         notify: restart apache2
+      - name: copy demo app
+        copy: src=demo/app/ dest=/var/www/demo mode=0755
+        notify: restart apache2
+      - name: copy virtual host config
+        copy: src=demo/app.conf dest=/etc/apache2/sites-available mode=0755
+        notify: restart apache2
 
     handlers:
       - name: restart apache2
