@@ -20,6 +20,9 @@
       - name: copy virtual host config
         copy: src=demo/demo.conf dest=/etc/apache2/sites-available mode=0755
         notify: restart apache2
+      - name: setup python virtualenv
+        pip: requirements=/var/www/demo/requirements.txt virtualenv=/var/wwww/demo/.venv
+        notify: restart apache2
 
     handlers:
       - name: restart apache2
