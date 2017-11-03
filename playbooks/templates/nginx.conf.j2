@@ -1,6 +1,6 @@
 upstream demo {
 {% for server in groups.web %}
-  server {{ seserver }};
+  server {{ server }};
 {% endfor %}
 }
 
