@@ -23,6 +23,9 @@
       - name: setup python virtualenv
         pip: requirements=/var/www/demo/requirements.txt virtualenv=/var/wwww/demo/.venv
         notify: restart apache2
+      - name: de-activate default apache site
+        file: path=/etc/apache2/sites-enabled/000-default.conf state=absent
+        notify: restart apache2
 
     handlers:
       - name: restart apache2
