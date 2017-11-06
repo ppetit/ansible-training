@@ -19,6 +19,18 @@
           regexp: '^bind_address'
           line: 'bind_address=0.0.0.0'
         notify: restart mysql
+      - name: create demo db
+        mysql_db:
+          name: demo
+          state: present
+      - name: create mysql user
+        mysql_user:
+          name: demo
+          password: demo
+          priv: demo.*.ALL
+          host: '%'
+          state: present
+
 
     handlers:
       - name: restart mysql
