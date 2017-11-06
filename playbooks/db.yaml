@@ -11,7 +11,7 @@
           path: /etc/mysql/my.cnf
           regexp: '^bind_address'
           line: 'bind_address=0.0.0.0'
-          notify: restart mysql
+        notify: restart mysql
 
     handlers:
       - name: restart mysql
