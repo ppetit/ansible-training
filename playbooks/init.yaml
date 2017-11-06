@@ -1,0 +1,15 @@
+---
+  - hosts: lb
+    become: true
+    tasks:
+      - name: update hosts file
+        blockinfile:
+          path: /etc/hosts
+          block: |
+            {{ item.ip}} {{ item.name }}
+          marker: "# {mark} Ansible Managed block {{ item.name }}"
+        with_items:
+          - { name: ubuntu1, ip: 192.168.2.1 }
+          - { name: ubuntu2, ip: 192.168.2.2 }
+          - { name: ubuntu3, ip: 192.168.2.3 }
+          - { name: ubuntu4, ip: 192.168.2.4 }
