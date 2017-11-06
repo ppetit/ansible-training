@@ -22,5 +22,4 @@
 
     handlers:
       - name: restart mysql
-        service: name=mysql state=regit log
-        started
+        service: name=mysql state=started
