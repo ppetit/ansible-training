@@ -1,0 +1,18 @@
+---
+  - hosts: lb
+    become: true
+    tasks:
+      - name: verify nginx status
+        command: service nginx status
+
+  - hosts: web
+    become: true
+    tasks:
+      - name: verify apache2 status
+        command: service apache2 status
+
+  - hosts: db
+    become: true
+    tasks:
+      - name: verify mysql  status
+        command: service mysql status
