@@ -2,7 +2,7 @@
   - hosts: db
     become: true
     tasks:
-      - name: install mysql tool
+      - name: install mysql tools
         apt:
           name: {{item}}
           state: present
