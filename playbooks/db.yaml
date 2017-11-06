@@ -16,7 +16,7 @@
       - name: ensure mysql is listening on all interfaces
         lineinfile:
           path: /etc/mysql/my.cnf
-          regexp: '^bind_address'
+          regexp: '^bind-address'
           line: 'bind_address=0.0.0.0'
         notify: restart mysql
       - name: create demo db
