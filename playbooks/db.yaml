@@ -34,5 +34,5 @@
 
     handlers:
       - name: restart mysql
-        service: name=mysql state=started
+        service: name=mysql state=restarted
 
