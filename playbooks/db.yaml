@@ -27,7 +27,7 @@
         mysql_user:
           name: demo
           password: demo
-          priv: demo.*.ALL
+          priv: 'demo.*:ALL'
           host: '%'
           state: present
 
