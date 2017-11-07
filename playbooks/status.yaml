@@ -40,7 +40,7 @@
 
       - fail: msg="index failed to return content"
         when: "'Hello, from sunny' not in item.content"
-        whit_items: "{{lb_index.results}}"
+        with_items: "{{lb_index.results}}"
 
       - name: verify backend response
         uri:
@@ -51,4 +51,4 @@
 
       - fail: msg="index failed to return content"
         when: "'Hello, from sunny {{item.item}}' not in item.content"
-        whit_items: "{{app_index.results}}"
+        with_items: "{{app_index.results}}"
