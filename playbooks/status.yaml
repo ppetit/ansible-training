@@ -35,9 +35,20 @@
         uri:
           url: http://{{item}}
           return_content: yes
-        with_items: groups.lb
+        with_items: "{{groups.lb}}"
         register: lb_index
 
       - fail: msg="index failed to return content"
         when: "'Hello, from sunny' not in item.content"
         whit_items: "{{lb_index.results}}"
+
+      - name: verify backend response
+        uri:
+          url: http://{{item}}
+          return_content: yes
+        with_items: "{{web.lb}}"
+        register: app_index
+
+      - fail: msg="index failed to return content"
+        when: "'Hello, from sunny {{item.item}}' not in item.content"
+        whit_items: "{{app_index.results}}"
