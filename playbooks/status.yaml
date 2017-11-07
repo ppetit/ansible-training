@@ -43,6 +43,7 @@
         with_items: "{{lb_index.results}}"
 
   - hosts: lb
+    tasks:
       - name: verify backend response
         uri:
           url: http://{{item}}
