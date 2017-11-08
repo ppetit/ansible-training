@@ -13,7 +13,7 @@
 - name: ensure mysql is listening on all interfaces
   lineinfile:
     path: /etc/mysql/my.cnf
-    regexp: "^bind-address"
+    regexp: "^bind_address"
     line: "bind-address={{ansible_eth1.ipv4.address}}"
   notify: restart mysql
 
