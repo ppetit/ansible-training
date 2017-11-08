@@ -14,7 +14,7 @@
   lineinfile:
     path: /etc/mysql/my.cnf
     regexp: "^bind_address"
-    line: "bind-address={{ansible_eth1.ipv4.address}}"
+    line: "bind_address={{ansible_eth1.ipv4.address}}"
   notify: restart mysql
 
 - name: ensure mysql-server is started
