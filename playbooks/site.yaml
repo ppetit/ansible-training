@@ -1,0 +1,5 @@
+---
+- include: control.yaml
+- include: db.yaml
+- include: web.yaml
+- include: lb.yaml
