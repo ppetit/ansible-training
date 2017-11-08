@@ -31,4 +31,4 @@
     password: demo
     priv: 'demo.*:ALL'
     host: '%'
-    state: present# tasks file for mysql
+    state: present
