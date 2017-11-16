@@ -4,3 +4,8 @@
     tasks:
     - include_role:
         name: mysql
+      vars:
+        db_name: "demo"
+        db_user_name: "demo"
+        db_user_pass: "demo"
+        db_user_host: '%'
