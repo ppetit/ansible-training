@@ -1,5 +1,6 @@
 ---
   - hosts: db
     become: true
-    roles:
-      - mysql
+    tasks:
+      - include_role:
+         name: mysql
