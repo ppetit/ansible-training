@@ -1,2 +1,5 @@
 ---
-# defaults file for lb
+sites:
+  myapp:
+    frontend: 80
+    backend: 80
