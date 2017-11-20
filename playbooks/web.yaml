@@ -1,8 +1,12 @@
 ---
   - hosts: web
     become: true
-    roles:
-      - apache2
-      - role: demo_app
-        db_user_name: "{{db_user}}"
-        db_user_pass: "{{db_pass}}"
+    tasks:
+      - include_role:
+          name: apache2
+      - include_role:
+          name: demo_app
+        vars:
+          db_user_name: "{{db_user}}"
+          db_user_pass: "{{db_pass}}"
+          db_user_host: '%'
