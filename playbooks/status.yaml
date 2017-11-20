@@ -52,10 +52,6 @@
         with_items: "{{groups.web}}"
         register: app_index
 
-      - debug:
-          msg: "item = {{item}}"
-        with_items: "{{app_index.results}}"
-
       - fail: msg="index failed to return content"
         when: item.content == "Hello, from sunny {{item.item}}!"
         with_items: "{{app_index.results}}"
