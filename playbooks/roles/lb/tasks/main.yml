@@ -20,7 +20,9 @@
   register: active
 
 - debug:
-    msg: "active sites = {{active}}"
+    msg: "de-active sites = {{item}}"
+    with_items: active.stdout_lines
+    when: item not in sites
 
 - name: de-activate default nginx site
   file: path=/etc/nginx/sites-enabled/{{item}} state=absent
