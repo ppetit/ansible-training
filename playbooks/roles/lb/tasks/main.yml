@@ -20,8 +20,8 @@
   register: active
 
 - debug:
-    msg: "de-active sites = {{item}}"
-    with_items: active.stdout_lines
+    msg: "de-active site {{item}}"
+    with_items: "{{active.stdout_lines}}"
     when: item not in sites
 
 - name: de-activate default nginx site
