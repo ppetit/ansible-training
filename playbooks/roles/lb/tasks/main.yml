@@ -18,6 +18,7 @@
 
 - name: get active sites
   shell: ls -1 /etc/nginx/sites-enabled
+  changed_when: "active.stdout_lines != sites.keys()"
   register: active
 
 - debug:
