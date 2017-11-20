@@ -4,6 +4,7 @@
   with_items:
     - apache2
     - libapache2-mod-wsgi
+  tags: [ 'packages' ]
 
 - name: ensure mod_wsgi is enabled
   apache2_module: state=present name=wsgi

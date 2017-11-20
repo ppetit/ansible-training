@@ -5,6 +5,7 @@
     - python-pip
     - python-virtualenv
     - python-mysqldb
+  tags: [ 'packages' ]
 
 - name: copy demo app
   copy: src=demo/app/ dest=/var/www/demo mode=0755

@@ -5,9 +5,11 @@
     state: present
   with_items:
     - python-mysqldb
+  tags: [ 'packages' ]
 
 - name: install mysql-server
   apt: name=mysql-server state=present
+  tags: [ 'packages' ]
 
 - name: ensure mysql is listening on all interfaces
   lineinfile:
