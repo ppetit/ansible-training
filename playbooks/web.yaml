@@ -2,9 +2,9 @@
   - hosts: web
     become: true
     tasks:
-      - include_role:
+      - import_role:
           name: apache2
-      - include_role:
+      - import_role:
           name: demo_app
         vars:
           db_user_name: "{{db_user}}"
