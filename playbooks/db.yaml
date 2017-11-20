@@ -2,7 +2,7 @@
   - hosts: db
     become: true
     tasks:
-    - include_role:
+    - import_role:
         name: mysql
       vars:
         db_user_name: "{{db_user}}"
