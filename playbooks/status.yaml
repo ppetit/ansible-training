@@ -53,7 +53,7 @@
         register: app_index
 
       - debug:
-          msg: "result = {{app_index.results}} - item = {{item}}"
+          msg: "item = {{item}}"
         with_items: "{{app_index.results}}"
 
       - fail: msg="index failed to return content"
