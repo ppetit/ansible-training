@@ -21,12 +21,12 @@
 
 - debug:
     msg: "de-active site {{item}}"
-    with_items: "{{active.stdout_lines}}"
-    when: item not in sites
+  with_items: "{{active.stdout_lines}}"
+  when: item not in sites
 
 - name: de-activate default nginx site
   file: path=/etc/nginx/sites-enabled/{{item}} state=absent
-  with_items: active.stdout_lines
+  with_items: "{{ active.stdout_lines }}"
   when: item not in sites
   notify: restart nginx
 
