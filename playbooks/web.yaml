@@ -3,6 +3,6 @@
     become: true
     roles:
       - apache2
-      - role: demo_app
+      - demo_app
         db_user_name: "{{db_user}}"
         db_user_pass: "{{db_pass}}"
