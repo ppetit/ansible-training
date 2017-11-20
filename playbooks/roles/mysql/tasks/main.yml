@@ -3,12 +3,11 @@
   apt:
     name: "{{item}}"
     state: present
-    update_cache: yes
   with_items:
     - python-mysqldb
 
 - name: install mysql-server
-  apt: name=mysql-server state=present update_cache=yes
+  apt: name=mysql-server state=present
 
 - name: ensure mysql is listening on all interfaces
   lineinfile:

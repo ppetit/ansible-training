@@ -3,12 +3,11 @@
   apt:
     name: "{{item}}"
     state: present
-    update_cache: yes
   with_items:
     - python-httplib2
 
 - name: install nginx
-  apt: name=nginx state=present update_cache=yes
+  apt: name=nginx state=present
 
 - name: configure nginx proxy
   template: src=nginx.conf.j2 dest=/etc/nginx/sites-available/{{ item.key}} mode=0644
