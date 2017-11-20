@@ -23,7 +23,9 @@
     msg: "active sites = {{active}}"
 
 - name: de-activate default nginx site
-  file: path=/etc/nginx/sites-enabled/default state=absent
+  file: path=/etc/nginx/sites-enabled/{{item}} state=absent
+  with_items: active.stdout_lines
+  when: item not in sites
   notify: restart nginx
 
 - name: activate demo nginx site
