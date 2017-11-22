@@ -21,10 +21,7 @@
   changed_when: "active.stdout_lines != sites.keys()"
   register: active
 
-- debug:
-    msg: "de-active site {{item}}"
-  with_items: "{{active.stdout_lines}}"
-  when: item not in sites
+- debug: var=active.stdout_lines
 
 - name: de-activate default nginx site
   file: path=/etc/nginx/sites-enabled/{{item}} state=absent
